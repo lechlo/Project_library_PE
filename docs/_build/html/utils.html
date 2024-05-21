@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils module &mdash; документация Library </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=372fde1a"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=29b1f277"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="test_user2 module" href="test_user2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Library
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Programma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="test_book.html">test_book module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_user2.html">test_user2 module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Author"><code class="docutils literal notranslate"><span class="pre">Author</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Author.name_aut"><code class="docutils literal notranslate"><span class="pre">Author.name_aut</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Book"><code class="docutils literal notranslate"><span class="pre">Book</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Book.qr_show"><code class="docutils literal notranslate"><span class="pre">Book.qr_show()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Book.reserve_book"><code class="docutils literal notranslate"><span class="pre">Book.reserve_book()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MyMainWindow"><code class="docutils literal notranslate"><span class="pre">MyMainWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.MyMainWindow.bookAction"><code class="docutils literal notranslate"><span class="pre">MyMainWindow.bookAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.MyMainWindow.displayQRCode"><code class="docutils literal notranslate"><span class="pre">MyMainWindow.displayQRCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.MyMainWindow.reserveBook"><code class="docutils literal notranslate"><span class="pre">MyMainWindow.reserveBook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.MyMainWindow.showQRCode"><code class="docutils literal notranslate"><span class="pre">MyMainWindow.showQRCode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.SubscriptionWindow"><code class="docutils literal notranslate"><span class="pre">SubscriptionWindow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_GraficRaboti"><code class="docutils literal notranslate"><span class="pre">Ui_GraficRaboti</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_GraficRaboti.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_GraficRaboti.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_GraficRaboti.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_GraficRaboti.setupUi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_HelpWindow"><code class="docutils literal notranslate"><span class="pre">Ui_HelpWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_HelpWindow.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_HelpWindow.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_HelpWindow.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_HelpWindow.setupUi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_MainWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.myFunction"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.myFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openGraficRaboti"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openGraficRaboti()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openHelpWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openHelpWindow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openNewArrivalsWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openNewArrivalsWindow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openPersonalAreaWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openPersonalAreaWindow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openProfilWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openProfilWindow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openRegistrationWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openRegistrationWindow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.openSubResourcesWindow"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.openSubResourcesWindow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_MainWindow.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_MainWindow.setupUi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_NewArrivalsWindow"><code class="docutils literal notranslate"><span class="pre">Ui_NewArrivalsWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_NewArrivalsWindow.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_NewArrivalsWindow.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_NewArrivalsWindow.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_NewArrivalsWindow.setupUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_NewArrivalsWindow.showBooks"><code class="docutils literal notranslate"><span class="pre">Ui_NewArrivalsWindow.showBooks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_PersonalArea"><code class="docutils literal notranslate"><span class="pre">Ui_PersonalArea</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_PersonalArea.myFunction_auth"><code class="docutils literal notranslate"><span class="pre">Ui_PersonalArea.myFunction_auth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_PersonalArea.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_PersonalArea.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_PersonalArea.send_new_lib_code"><code class="docutils literal notranslate"><span class="pre">Ui_PersonalArea.send_new_lib_code()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_PersonalArea.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_PersonalArea.setupUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_PersonalArea.show_email_dialog"><code class="docutils literal notranslate"><span class="pre">Ui_PersonalArea.show_email_dialog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_Profil"><code class="docutils literal notranslate"><span class="pre">Ui_Profil</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_Profil.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_Profil.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_Profil.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_Profil.setupUi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_RegistrationWindow"><code class="docutils literal notranslate"><span class="pre">Ui_RegistrationWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_RegistrationWindow.myFunction_reg"><code class="docutils literal notranslate"><span class="pre">Ui_RegistrationWindow.myFunction_reg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_RegistrationWindow.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_RegistrationWindow.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_RegistrationWindow.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_RegistrationWindow.setupUi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.Ui_SubResourcesWindow"><code class="docutils literal notranslate"><span class="pre">Ui_SubResourcesWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_SubResourcesWindow.retranslateUi"><code class="docutils literal notranslate"><span class="pre">Ui_SubResourcesWindow.retranslateUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_SubResourcesWindow.setupUi"><code class="docutils literal notranslate"><span class="pre">Ui_SubResourcesWindow.setupUi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_SubResourcesWindow.showResources"><code class="docutils literal notranslate"><span class="pre">Ui_SubResourcesWindow.showResources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.Ui_SubResourcesWindow.showSubscriptionWindow"><code class="docutils literal notranslate"><span class="pre">Ui_SubResourcesWindow.showSubscriptionWindow()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.User.auth"><code class="docutils literal notranslate"><span class="pre">User.auth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.User.borrow_book"><code class="docutils literal notranslate"><span class="pre">User.borrow_book()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.User.change_password"><code class="docutils literal notranslate"><span class="pre">User.change_password()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.User.reg"><code class="docutils literal notranslate"><span class="pre">User.reg()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Programma</a></li>
+      <li class="breadcrumb-item active">utils module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/utils.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utils">
+<span id="utils-module"></span><h1>utils module<a class="headerlink" href="#module-utils" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Author">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Author</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_aut</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Author"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Author" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Автор книги.</p>
+<p>Класс предоставляет методы для работы с авторами книг.</p>
+<dl class="simple">
+<dt>Атрибуты:</dt><dd><p>name_aut (str): Имя автора.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.Author.name_aut">
+<span class="sig-name descname"><span class="pre">name_aut</span></span><a class="headerlink" href="#utils.Author.name_aut" title="Link to this definition"></a></dt>
+<dd><p>Инициализирует новый объект класса Author.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name_aut (str): Имя автора.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Book">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">art</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Book"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Book" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Этот класс предоставляет методы для управления книгами в библиотеке.
+Атрибуты:</p>
+<blockquote>
+<div><p>book_name (str): Название книги.
+art(str): Автор книги.
+количество (int): количество книги на складе.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Book.qr_show">
+<span class="sig-name descname"><span class="pre">qr_show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Book.qr_show"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Book.qr_show" title="Link to this definition"></a></dt>
+<dd><p>Отображает QR-код книги.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Book.reserve_book">
+<span class="sig-name descname"><span class="pre">reserve_book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prov_test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Book.reserve_book"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Book.reserve_book" title="Link to this definition"></a></dt>
+<dd><p>Заказывает книгу в библиотеке.</p>
+<dl class="simple">
+<dt>Аргументы:</dt><dd><p>book_info (кортеж): информация о книге.
+prov_test (bool): флаг, указывающий на предварительную проверку.</p>
+</dd>
+<dt>Поднимает:</dt><dd><p>KeyError: Если книга не найдена в библиотеке.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.MyMainWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">MyMainWindow</span></span><a class="reference internal" href="_modules/utils.html#MyMainWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.MyMainWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<p>Класс MyMainWindow представляет главное окно приложения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>QtWidgets</strong> (<em>module</em>) – Библиотека для работы с виджетами Qt.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MyMainWindow.bookAction">
+<span class="sig-name descname"><span class="pre">bookAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#MyMainWindow.bookAction"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.MyMainWindow.bookAction" title="Link to this definition"></a></dt>
+<dd><p>Обработчик события нажатия на элемент списка книг.</p>
+<p>Функция обрабатывает событие нажатия на элемент списка книг, отображает диалоговое окно
+с возможными действиями и вызывает соответствующие методы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>QtWidgets.QListWidgetItem</em>) – Элемент списка книг.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MyMainWindow.displayQRCode">
+<span class="sig-name descname"><span class="pre">displayQRCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#MyMainWindow.displayQRCode"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.MyMainWindow.displayQRCode" title="Link to this definition"></a></dt>
+<dd><p>Отображение QR-кода для выбранной книги.</p>
+<p>Функция создает QR-код на основе информации о книге и сохраняет его в файл.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>book_info</strong> (<em>tuple</em>) – Информация о книге.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MyMainWindow.reserveBook">
+<span class="sig-name descname"><span class="pre">reserveBook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#MyMainWindow.reserveBook"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.MyMainWindow.reserveBook" title="Link to this definition"></a></dt>
+<dd><p>Резервирование выбранной книги.</p>
+<p>Функция выполняет процесс резервирования выбранной книги.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>book_info</strong> (<em>tuple</em>) – Информация о книге.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MyMainWindow.showQRCode">
+<span class="sig-name descname"><span class="pre">showQRCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#MyMainWindow.showQRCode"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.MyMainWindow.showQRCode" title="Link to this definition"></a></dt>
+<dd><p>Отображение QR-кода на экране.</p>
+<p>Функция отображает сохраненный QR-код на экране приложения.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.SubscriptionWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">SubscriptionWindow</span></span><a class="reference internal" href="_modules/utils.html#SubscriptionWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.SubscriptionWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QDialog</span></code></p>
+<p>Класс SubscriptionWindow представляет окно подписки.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>QtWidgets</strong> (<em>Тип параметра QtWidgets.</em>) – Описание параметра QtWidgets.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_GraficRaboti">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_GraficRaboti</span></span><a class="reference internal" href="_modules/utils.html#Ui_GraficRaboti"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_GraficRaboti" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс для интерфейса графика работы.</p>
+<p>Класс предоставляет методы для настройки интерфейса графика работы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Object</em>) – Объект класса.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_GraficRaboti.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GraficRaboti</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_GraficRaboti.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_GraficRaboti.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Перевод элементов интерфейса.</p>
+<p>Метод осуществляет перевод элементов интерфейса окна графика рыботы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>MainWindow</strong> (<em>Object</em>) – Объект окно графика работы.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_GraficRaboti.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GraficRaboti</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_GraficRaboti.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_GraficRaboti.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настройка интерфейса.</p>
+<p>Метод настраивает элементы интерфейса графика работы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>GraficRaboti</strong> (<em>Object</em>) – Объект интерфейса графика работы.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_HelpWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_HelpWindow</span></span><a class="reference internal" href="_modules/utils.html#Ui_HelpWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_HelpWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс Ui_HelpWindow представляет интерфейс для окна справки.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>class</em>) – Объект класса.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_HelpWindow.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">HelpWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_HelpWindow.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_HelpWindow.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Перевод пользовательского интерфейса для окна справки.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>HelpWindow</strong> (<em>QtWidgets.QMainWindow</em>) – Окно справки.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_HelpWindow.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">HelpWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_HelpWindow.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_HelpWindow.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настройка пользовательского интерфейса для окна справки.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>HelpWindow</strong> (<em>QtWidgets.QMainWindow</em>) – Окно справки.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_MainWindow</span></span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс для интерфейса главного окна.</p>
+<p>Класс предоставляет методы для настройки элементов интерфейса главного окна.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Object</em>) – Объект класса.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.myFunction">
+<span class="sig-name descname"><span class="pre">myFunction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.myFunction"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.myFunction" title="Link to this definition"></a></dt>
+<dd><p>Моя функция для поиска книг.</p>
+<p>Функция выполняет поиск книг по заданному тексту и отображает результаты в виджете.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openGraficRaboti">
+<span class="sig-name descname"><span class="pre">openGraficRaboti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openGraficRaboti"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openGraficRaboti" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно графика работы.</p>
+<p>Функция создает новое главное окно, загружает интерфейс для окна графика работы
+и отображает его.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openHelpWindow">
+<span class="sig-name descname"><span class="pre">openHelpWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openHelpWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openHelpWindow" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно справки.</p>
+<p>Функция создает новое главное окно, загружает интерфейс для окна справки и отображает его.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openNewArrivalsWindow">
+<span class="sig-name descname"><span class="pre">openNewArrivalsWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openNewArrivalsWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openNewArrivalsWindow" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно новинок.</p>
+<p>Подробное описание того, как функция открывает окно новинок.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openPersonalAreaWindow">
+<span class="sig-name descname"><span class="pre">openPersonalAreaWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openPersonalAreaWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openPersonalAreaWindow" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно личного кабинета.</p>
+<p>Подробное описание того, как функция открывает окно личного кабинета.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openProfilWindow">
+<span class="sig-name descname"><span class="pre">openProfilWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openProfilWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openProfilWindow" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно профиля пользователя.</p>
+<p>Функция создает новое главное окно, загружает интерфейс для окна профиля пользователя
+и отображает его.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openRegistrationWindow">
+<span class="sig-name descname"><span class="pre">openRegistrationWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openRegistrationWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openRegistrationWindow" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно регистрации.</p>
+<p>Подробное описание того, как функция открывает окно регистрации.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.openSubResourcesWindow">
+<span class="sig-name descname"><span class="pre">openSubResourcesWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.openSubResourcesWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.openSubResourcesWindow" title="Link to this definition"></a></dt>
+<dd><p>Открыть окно дополнительных ресурсов.</p>
+<p>Функция создает новое главное окно, загружает интерфейс для окна дополнительных ресурсов
+и отображает его.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MainWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Перевод элементов интерфейса.</p>
+<p>Метод осуществляет перевод элементов интерфейса главного окна.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>MainWindow</strong> (<em>Object</em>) – Объект главного окна.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_MainWindow.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MainWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_MainWindow.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_MainWindow.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настройка интерфейса.</p>
+<p>Метод настраивает элементы интерфейса главного окна.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>MainWindow</strong> (<em>Object</em>) – Объект главного окна.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_NewArrivalsWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_NewArrivalsWindow</span></span><a class="reference internal" href="_modules/utils.html#Ui_NewArrivalsWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_NewArrivalsWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс Ui_NewArrivalsWindow представляет интерфейс окна новых поступлений книг.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Тип параметра object.</em>) – Описание параметра object.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_NewArrivalsWindow.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NewArrivalsWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_NewArrivalsWindow.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_NewArrivalsWindow.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Переводит элементы пользовательского интерфейса окна новых поступлений.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NewArrivalsWindow</strong> (<em>Тип параметра NewArrivalsWindow.</em>) – Окно новых поступлений.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_NewArrivalsWindow.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NewArrivalsWindow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bookListWidget</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_NewArrivalsWindow.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_NewArrivalsWindow.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настраивает пользовательский интерфейс окна новых поступлений.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NewArrivalsWindow</strong> (<em>Тип параметра NewArrivalsWindow.</em>) – Окно новых поступлений.</p></li>
+<li><p><strong>bookListWidget</strong> (<em>Тип параметра bookListWidget.</em>) – Виджет списка книг.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_NewArrivalsWindow.showBooks">
+<span class="sig-name descname"><span class="pre">showBooks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_NewArrivalsWindow.showBooks"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_NewArrivalsWindow.showBooks" title="Link to this definition"></a></dt>
+<dd><p>Отображает список книг в соответствии с выбранным типом поступления.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_PersonalArea">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_PersonalArea</span></span><a class="reference internal" href="_modules/utils.html#Ui_PersonalArea"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_PersonalArea" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс Ui_PersonalArea представляет интерфейс личного кабинета.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Тип параметра object.</em>) – Описание параметра object.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_PersonalArea.myFunction_auth">
+<span class="sig-name descname"><span class="pre">myFunction_auth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_PersonalArea.myFunction_auth"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_PersonalArea.myFunction_auth" title="Link to this definition"></a></dt>
+<dd><p>Метод для аутентификации пользователя.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>e</strong> (<em>Тип параметра e.</em>) – Описание параметра e.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_PersonalArea.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PersonalArea</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_PersonalArea.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_PersonalArea.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Перевод пользовательского интерфейса для личного кабинета.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>PersonalArea</strong> (<em>Тип параметра PersonalArea.</em>) – Описание параметра PersonalArea.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_PersonalArea.send_new_lib_code">
+<span class="sig-name descname"><span class="pre">send_new_lib_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_lib_code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_PersonalArea.send_new_lib_code"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_PersonalArea.send_new_lib_code" title="Link to this definition"></a></dt>
+<dd><p>Отправить новый библиотечный код на указанный email.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>email</strong> (<em>str</em>) – Email получателя.</p></li>
+<li><p><strong>new_lib_code</strong> (<em>str</em>) – Новый библиотечный код.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_PersonalArea.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PersonalArea</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_PersonalArea.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_PersonalArea.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настройка пользовательского интерфейса для личного кабинета.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>PersonalArea</strong> (<em>Тип параметра PersonalArea.</em>) – Описание параметра PersonalArea.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_PersonalArea.show_email_dialog">
+<span class="sig-name descname"><span class="pre">show_email_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_PersonalArea.show_email_dialog"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_PersonalArea.show_email_dialog" title="Link to this definition"></a></dt>
+<dd><p>Показать диалоговое окно для ввода email.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_Profil">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_Profil</span></span><a class="reference internal" href="_modules/utils.html#Ui_Profil"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_Profil" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс Ui_Profil представляет интерфейс профиля пользователя.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Тип параметра object.</em>) – Описание параметра object.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_Profil.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Profil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_Profil.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_Profil.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Перевод пользовательского интерфейса для профиля.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Profil</strong> (<em>Тип параметра Profil.</em>) – Описание параметра Profil.</p></li>
+<li><p><strong>user_info</strong> (<em>dict</em>) – Информация о пользователе.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_Profil.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Profil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_Profil.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_Profil.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настройка пользовательского интерфейса для профиля.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Profil</strong> (<em>Тип параметра Profil.</em>) – Описание параметра Profil.</p></li>
+<li><p><strong>user_info</strong> (<em>dict</em>) – Информация о пользователе.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_RegistrationWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_RegistrationWindow</span></span><a class="reference internal" href="_modules/utils.html#Ui_RegistrationWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_RegistrationWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс Ui_RegistrationWindow представляет интерфейс окна регистрации пользователя.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Тип параметра object.</em>) – Описание параметра object.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_RegistrationWindow.myFunction_reg">
+<span class="sig-name descname"><span class="pre">myFunction_reg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_RegistrationWindow.myFunction_reg"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_RegistrationWindow.myFunction_reg" title="Link to this definition"></a></dt>
+<dd><p>Выполняет регистрацию пользователя.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_RegistrationWindow.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">RegistrationWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_RegistrationWindow.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_RegistrationWindow.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Перевод элементов пользовательского интерфейса.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RegistrationWindow</strong> (<em>Тип параметра RegistrationWindow.</em>) – Окно регистрации.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_RegistrationWindow.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">RegistrationWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_RegistrationWindow.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_RegistrationWindow.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Настройка пользовательского интерфейса для окна регистрации.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RegistrationWindow</strong> (<em>Тип параметра RegistrationWindow.</em>) – Описание параметра RegistrationWindow.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.Ui_SubResourcesWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">Ui_SubResourcesWindow</span></span><a class="reference internal" href="_modules/utils.html#Ui_SubResourcesWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_SubResourcesWindow" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс Ui_SubResourcesWindow представляет пользовательский интерфейс для окна подписки на ресурсы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong> (<em>Тип параметра object.</em>) – Описание параметра object.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_SubResourcesWindow.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SubResourcesWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_SubResourcesWindow.retranslateUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_SubResourcesWindow.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Метод retranslateUi обновляет текстовые элементы интерфейса окна подписки на ресурсы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SubResourcesWindow</strong> (<em>Тип параметра SubResourcesWindow.</em>) – Описание параметра SubResourcesWindow.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_SubResourcesWindow.setupUi">
+<span class="sig-name descname"><span class="pre">setupUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SubResourcesWindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_SubResourcesWindow.setupUi"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_SubResourcesWindow.setupUi" title="Link to this definition"></a></dt>
+<dd><p>Метод setupUi инициализирует интерфейс окна подписки на ресурсы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SubResourcesWindow</strong> (<em>Тип параметра SubResourcesWindow.</em>) – Описание параметра SubResourcesWindow.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_SubResourcesWindow.showResources">
+<span class="sig-name descname"><span class="pre">showResources</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_SubResourcesWindow.showResources"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_SubResourcesWindow.showResources" title="Link to this definition"></a></dt>
+<dd><p>Метод showResources отображает подписные ресурсы в соответствии с выбранными категориями.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.Ui_SubResourcesWindow.showSubscriptionWindow">
+<span class="sig-name descname"><span class="pre">showSubscriptionWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Ui_SubResourcesWindow.showSubscriptionWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.Ui_SubResourcesWindow.showSubscriptionWindow" title="Link to this definition"></a></dt>
+<dd><p>Отображает окно подписки.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>Тип элемента.</em>) – Элемент, связанный с окном подписки.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#User"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.User" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Пользователь библиотеки.</p>
+<p>Класс предоставляет методы для работы с пользователями библиотеки.</p>
+<dl class="simple">
+<dt>Атрибуты:</dt><dd><p>name (str): Имя пользователя.
+fam (str): Фамилия пользователя.
+oth (str): Отчество пользователя.
+date (str): Дата рождения пользователя.
+email (str): Email пользователя.
+status (str): Статус пользователя.
+password (str): Пароль пользователя.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.User.auth">
+<span class="sig-name descname"><span class="pre">auth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#User.auth"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.User.auth" title="Link to this definition"></a></dt>
+<dd><p>Аутентификация пользователя.</p>
+<p>Функция осуществляет процесс аутентификации пользователя по введенным данным.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>e</strong> (<em>Event</em>) – Событие, вызвавшее функцию.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.User.borrow_book">
+<span class="sig-name descname"><span class="pre">borrow_book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#User.borrow_book"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.User.borrow_book" title="Link to this definition"></a></dt>
+<dd><p>Берет книгу в библиотеке.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>book_info (str): Информация о книге.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: Результат операции.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.User.change_password">
+<span class="sig-name descname"><span class="pre">change_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#User.change_password"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.User.change_password" title="Link to this definition"></a></dt>
+<dd><p>Изменяет пароль пользователя.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>new_password (str): Новый пароль пользователя.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.User.reg">
+<span class="sig-name descname"><span class="pre">reg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#User.reg"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#utils.User.reg" title="Link to this definition"></a></dt>
+<dd><p>Регистрирует нового пользователя в библиотеке.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="test_user2.html" class="btn btn-neutral float-left" title="test_user2 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2024, 1.0.0. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
