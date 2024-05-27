@@ -22,35 +22,6 @@ class Book():
         self.book_name = book_name
         self.art = art
         self.quantity = quantity
-    def qr_show (self):
-        qr_window = QtWidgets.QDialog()
-        qr_window.setWindowTitle("QR Code")
-        layout = QtWidgets.QVBoxLayout()
-        label = QtWidgets.QLabel()
-        pixmap = QtGui.QPixmap("temp_qr_code.png")
-        label.setPixmap(pixmap)
-        layout.addWidget(label)
-        qr_window.setLayout(layout)
-        qr_window.exec_()
-    def reserve_book (self, book_info, prov_test):
-        book_name, _, _, quantity = book_info
-        if int(quantity) > 0:
-            filename = 'Список книг библиотеки.xlsx'
-            wb = op.load_workbook(filename)
-            sheet = wb.active
-            max_rows = sheet.max_row
-
-            for i in range(3, max_rows + 1):
-                if sheet.cell(row=i, column=2).value == book_name:
-                    current_quantity = int(sheet.cell(row=i, column=6).value)
-                    sheet.cell(row=i, column=6).value = current_quantity - 1
-                    wb.save(filename)
-                    QtWidgets.QMessageBox.information(self, "Успешно", "Вы успешно зарезервировали книгу")
-                    self.ui.myFunction()  # Обновляем список книг
-
-                    break
-        else:
-            QtWidgets.QMessageBox.warning(self, "Ошибка", "Данной книги нет на складе")
 
 class Author():
 
@@ -64,109 +35,8 @@ class User():
         self.date = date
         self.email = email
         self.status = status
-        self.password = ""
-
-    def change_password(self, new_password):
-        self.password = new_password
-
-    def borrow_book(self, book_info):
-        return True
-    def reg(self):
-        # Проверка заполнения полей
-        if not self.lineEdit.text() or not self.lineEdit_2.text() or not self.lineEdit_4.text() or not self.lineEdit_5.text():
-            QtWidgets.QMessageBox.warning(None, 'Ошибка', 'Поля не заполнены')
-            return
-
-        # Проверка формата даты
-        try:
-            dob = datetime.datetime.strptime(self.lineEdit_4.text(), "%d.%m.%Y")
-        except ValueError:
-            QtWidgets.QMessageBox.warning(None, 'Ошибка', 'Неверный формат даты. Введите ДД.ММ.ГГГГ')
-            return
-
-        # Преобразование объекта datetime обратно в строку в нужном формате
-        dob_formatted = dob.strftime("%d.%m.%Y")
-
-        # Генерация нового библиотечного кода
-        new_lib_code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
-
-        filename = 'Список пользователей.xlsx'
-        wb = op.load_workbook(filename)
-        sheet = wb.active
-        max_rows_reg = sheet.max_row
-
-        User.name = self.lineEdit.text()
-        User.fam = self.lineEdit_2.text()
-        User.oth = self.lineEdit_3.text()
-        User.date = dob_formatted  # Записываем отформатированную дату
-        User.email = self.lineEdit_5.text()
-        User.status = self.comboBox.currentText()
-        User.lib_code = new_lib_code
-
-        sheet.cell(row=max_rows_reg + 1, column=2).value = User.name
-        sheet.cell(row=max_rows_reg + 1, column=3).value = User.fam
-        sheet.cell(row=max_rows_reg + 1, column=4).value = User.oth
-        sheet.cell(row=max_rows_reg + 1, column=5).value = User.date  
-        sheet.cell(row=max_rows_reg + 1, column=6).value = User.email
-        sheet.cell(row=max_rows_reg + 1, column=7).value = User.status
-        sheet.cell(row=max_rows_reg + 1, column=8).value = User.lib_code
-
-        wb.save(filename)
-
-        QtWidgets.QMessageBox.information(None, 'Успешная регистрация', 'Ваша регистрация успешно завершена.\nВаш библиотечный код: {}'.format(new_lib_code))
-
-        self.lineEdit.clear()
-        self.lineEdit_2.clear()
-        self.lineEdit_3.clear()
-        self.lineEdit_4.clear()
-        self.lineEdit_5.clear()
 
 
-    def auth(self, e):
-        filename = 'Список пользователей.xlsx'
-        wb = op.load_workbook(filename, data_only=True)
-        sheet = wb.active
-        max_rows_reg = sheet.max_row
-
-        found = False  # Переменная для отслеживания успешного входа
-
-        user_info = {}  # Словарь для хранения информации о пользователе
-
-        for i in range(4, max_rows_reg + 1):
-            User.email = str(sheet.cell(row=i, column=6).value)
-            User.lib_code = str(sheet.cell(row=i, column=8).value)
-            User.date = str(sheet.cell(row=i, column=5).value)
-            
-            if User.lib_code in self.lineEdit.text() or User.email in self.lineEdit.text(): 
-                if User.date == self.lineEdit_2.text():  # Проверка правильности пароля
-                    found = True  # Установка флага успешного входа
-                    
-                    # Извлечение информации о пользователе из Excel
-                    user_info['first_name'] = str(sheet.cell(row=i, column=3).value)
-                    user_info['last_name'] = str(sheet.cell(row=i, column=2).value)
-                    user_info['middle_name'] = str(sheet.cell(row=i, column=4).value)
-                    user_info['email'] = User.email
-                    user_info['lib_code'] = User.lib_code
-
-                    break
-
-        if found:
-            QtWidgets.QMessageBox.information(None, 'Успешный вход', 'Вы вошли в аккаунт')
-
-            # Проверяем, открыто ли уже окно профиля
-            if not self.profile_window:
-                # Создаем экземпляр Ui_Profil и открываем окно профиля, передавая информацию о пользователе
-                self.profile_window = QtWidgets.QMainWindow()
-                ui = Ui_Profil()
-                ui.setupUi(self.profile_window, user_info)
-                self.profile_window.show()
-
-            # Закрываем текущее окно "Вход в личный кабинет"
-            self.PersonalArea.close()
-        else:
-            QtWidgets.QMessageBox.warning(None, 'Ошибка', 'Пароль или логин указаны неправильно')
-            self.lineEdit.clear()
-            self.lineEdit_2.clear()
 class Ui_GraficRaboti(object):
     def setupUi(self, GraficRaboti):
         GraficRaboti.setObjectName("GraficRaboti")
@@ -382,6 +252,7 @@ class Ui_MainWindow(object):
                 item.setData(QtCore.Qt.UserRole, book)
 
 
+
 class MyMainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MyMainWindow, self).__init__()
@@ -419,11 +290,36 @@ class MyMainWindow(QtWidgets.QMainWindow):
         self.showQRCode()
 
     def showQRCode(self):
-        Book.qr_show(self)
+        qr_window = QtWidgets.QDialog()
+        qr_window.setWindowTitle("QR Code")
+        layout = QtWidgets.QVBoxLayout()
+        label = QtWidgets.QLabel()
+        pixmap = QtGui.QPixmap("temp_qr_code.png")
+        label.setPixmap(pixmap)
+        layout.addWidget(label)
+        qr_window.setLayout(layout)
+        qr_window.exec_()
 
 
     def reserveBook(self, book_info):
-        Book.reserve_book(self, book_info)
+        book_name, _, _, quantity = book_info
+        if int(quantity) > 0:
+            filename = 'Список книг библиотеки.xlsx'
+            wb = op.load_workbook(filename)
+            sheet = wb.active
+            max_rows = sheet.max_row
+
+            for i in range(3, max_rows + 1):
+                if sheet.cell(row=i, column=2).value == book_name:
+                    current_quantity = int(sheet.cell(row=i, column=6).value)
+                    sheet.cell(row=i, column=6).value = current_quantity - 1
+                    wb.save(filename)
+                    QtWidgets.QMessageBox.information(self, "Успешно", "Вы успешно зарезервировали книгу")
+                    self.ui.myFunction()  # Обновляем список книг
+
+                    break
+        else:
+            QtWidgets.QMessageBox.warning(self, "Ошибка", "Данной книги нет на складе")
 
 class Ui_HelpWindow(object):
     def setupUi(self, HelpWindow):
@@ -535,7 +431,50 @@ class Ui_PersonalArea(object):
         self.pushButton_2.setText(_translate("PersonalArea", "Забыли свой библиотечный код?"))
 
     def myFunction_auth(self, e):
-        User.auth(self, e)
+        filename = 'Список пользователей.xlsx'
+        wb = op.load_workbook(filename, data_only=True)
+        sheet = wb.active
+        max_rows_reg = sheet.max_row
+
+        found = False  # Переменная для отслеживания успешного входа
+
+        user_info = {}  # Словарь для хранения информации о пользователе
+
+        for i in range(4, max_rows_reg + 1):
+            User.email = str(sheet.cell(row=i, column=6).value)
+            User.lib_code = str(sheet.cell(row=i, column=8).value)
+            User.date = str(sheet.cell(row=i, column=5).value)
+
+            if User.lib_code in self.lineEdit.text() or User.email in self.lineEdit.text():
+                if User.date == self.lineEdit_2.text():  # Проверка правильности пароля
+                    found = True  # Установка флага успешного входа
+
+                    # Извлечение информации о пользователе из Excel
+                    user_info['first_name'] = str(sheet.cell(row=i, column=3).value)
+                    user_info['last_name'] = str(sheet.cell(row=i, column=2).value)
+                    user_info['middle_name'] = str(sheet.cell(row=i, column=4).value)
+                    user_info['email'] = User.email
+                    user_info['lib_code'] = User.lib_code
+
+                    break
+
+        if found:
+            QtWidgets.QMessageBox.information(None, 'Успешный вход', 'Вы вошли в аккаунт')
+
+            # Проверяем, открыто ли уже окно профиля
+            if not self.profile_window:
+                # Создаем экземпляр Ui_Profil и открываем окно профиля, передавая информацию о пользователе
+                self.profile_window = QtWidgets.QMainWindow()
+                ui = Ui_Profil()
+                ui.setupUi(self.profile_window, user_info)
+                self.profile_window.show()
+
+            # Закрываем текущее окно "Вход в личный кабинет"
+            self.PersonalArea.close()
+        else:
+            QtWidgets.QMessageBox.warning(None, 'Ошибка', 'Пароль или логин указаны неправильно')
+            self.lineEdit.clear()
+            self.lineEdit_2.clear()
 
     def show_email_dialog(self):
         email, ok_pressed = QtWidgets.QInputDialog.getText(None, "Восстановление библиотечного кода", "Введите свою почту:")
@@ -714,11 +653,56 @@ class Ui_RegistrationWindow(object):
         self.pushButton.setText(_translate("RegistrationWindow", "Зарегистрироваться"))
 
     def myFunction_reg(self):
-        User.reg(self)
+        # Проверка заполнения полей
+        if not self.lineEdit.text() or not self.lineEdit_2.text() or not self.lineEdit_4.text() or not self.lineEdit_5.text():
+            QtWidgets.QMessageBox.warning(None, 'Ошибка', 'Поля не заполнены')
+            return
 
+        # Проверка формата даты
+        try:
+            dob = datetime.datetime.strptime(self.lineEdit_4.text(), "%d.%m.%Y")
+        except ValueError:
+            QtWidgets.QMessageBox.warning(None, 'Ошибка', 'Неверный формат даты. Введите ДД.ММ.ГГГГ')
+            return
 
+        # Преобразование объекта datetime обратно в строку в нужном формате
+        dob_formatted = dob.strftime("%d.%m.%Y")
 
+        # Генерация нового библиотечного кода
+        new_lib_code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
+        filename = 'Список пользователей.xlsx'
+        wb = op.load_workbook(filename)
+        sheet = wb.active
+        max_rows_reg = sheet.max_row
+
+        User.name = self.lineEdit.text()
+        User.fam = self.lineEdit_2.text()
+        User.oth = self.lineEdit_3.text()
+        User.date = dob_formatted  # Записываем отформатированную дату
+        User.email = self.lineEdit_5.text()
+        User.status = self.comboBox.currentText()
+        User.lib_code = new_lib_code
+
+        sheet.cell(row=max_rows_reg + 1, column=2).value = User.name
+        sheet.cell(row=max_rows_reg + 1, column=3).value = User.fam
+        sheet.cell(row=max_rows_reg + 1, column=4).value = User.oth
+        sheet.cell(row=max_rows_reg + 1, column=5).value = User.date
+        sheet.cell(row=max_rows_reg + 1, column=6).value = User.email
+        sheet.cell(row=max_rows_reg + 1, column=7).value = User.status
+        sheet.cell(row=max_rows_reg + 1, column=8).value = User.lib_code
+
+        wb.save(filename)
+
+        QtWidgets.QMessageBox.information(None, 'Успешная регистрация',
+                                          'Ваша регистрация успешно завершена.\nВаш библиотечный код: {}'.format(
+                                              new_lib_code))
+
+        self.lineEdit.clear()
+        self.lineEdit_2.clear()
+        self.lineEdit_3.clear()
+        self.lineEdit_4.clear()
+        self.lineEdit_5.clear()
 
 
 class Ui_NewArrivalsWindow(object):
